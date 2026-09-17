@@ -14,4 +14,24 @@ public class Login {
     public boolean checkUserName(String username) {
         return username.contains("_") && username.length() <= 5;
     }
+    
+         public boolean checkPasswordComplexity(String password) {
+            boolean hasUpperCase = false;
+            boolean hasDigit = false;
+            boolean hasSpecialChar = false;
+            
+            for (char c : password.toCharArray()) {
+                if (Character.isUpperCase(c)) {
+                    hasUpperCase = true;
+                }
+                else if (Character.isDigit(c)){
+                    hasDigit = true;
+                }
+                else if (!Character.isLetterOrDigit(c)) {
+                    hasSpecialChar = true;
+                }
+            }
+            
+            return password.length() >= 8 && hasUpperCase && hasDigit && hasSpecialChar;
+    }
 }
