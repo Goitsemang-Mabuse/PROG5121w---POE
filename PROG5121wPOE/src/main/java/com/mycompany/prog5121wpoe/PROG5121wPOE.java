@@ -20,6 +20,10 @@ public class PROG5121wPOE {
        //Check whether the system accepts a valid password and rejects an invalid one
        System.out.println(login.checkPasswordComplexity("Ch&&sec@ke99!"));
        System.out.println(login.checkPasswordComplexity("password"));
+       
+       //Check whether the system accepts a valid cell number and rejects an invalid one
+       System.out.println(login.checkCellPhoneNumber("+27838968976"));
+       System.out.println(login.checkCellPhoneNumber("0838968976"));
         }
     }
 

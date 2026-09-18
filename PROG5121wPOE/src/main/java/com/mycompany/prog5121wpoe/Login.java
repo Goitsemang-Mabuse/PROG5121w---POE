@@ -33,5 +33,15 @@ public class Login {
             }
             
             return password.length() >= 8 && hasUpperCase && hasDigit && hasSpecialChar;
+         }
+         
+        //Regex pattern for South African cell numbers, adapted from:
+        // https://www.regular-expressions.info/refbasic.html (basic regex reference)
+        public boolean checkCellPhoneNumber(String cellNumber) {
+            String regex = "^\\+27\\d{9}$";
+            return cellNumber.matches(regex);
+        }
+             
     }
-}
+
+
