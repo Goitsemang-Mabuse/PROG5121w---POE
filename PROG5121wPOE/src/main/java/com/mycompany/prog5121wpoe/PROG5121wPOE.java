@@ -26,7 +26,7 @@ public class PROG5121wPOE {
        System.out.println(login.checkCellPhoneNumber("0838968976"));
        
        //Test registerUser with valid registration details
-       System.out.println(login.registerUser("kyl_1", "Ch&&sec@ke99!", "+27838968976"));
+       System.out.println(login.registerUser("kyle!!!!!!", "Ch&&sec@ke99!", "+27838968976"));
         }
     }
 
