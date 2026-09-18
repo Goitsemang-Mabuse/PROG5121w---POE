@@ -36,7 +36,7 @@ public class Login {
          }
          
         //Regex pattern for South African cell numbers, adapted from:
-        // https://www.regular-expressions.info/refbasic.html (basic regex reference)
+        // https://www.regular-expressions.info/tutorial.html (basic regex reference)
         public boolean checkCellPhoneNumber(String cellNumber) {
             String regex = "^\\+27\\d{9}$";
             return cellNumber.matches(regex);
