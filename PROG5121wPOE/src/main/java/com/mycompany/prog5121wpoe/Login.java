@@ -41,7 +41,30 @@ public class Login {
             String regex = "^\\+27\\d{9}$";
             return cellNumber.matches(regex);
         }
-             
-    }
+        
+        private String username;
+        private String password;
+        private String cellNumber;
+        
+        public String registerUser(String username, String password, String cellNumber){
+            this.username = username;
+            this.password = password;
+            this.cellNumber = cellNumber;
+            
+          if (!checkUserName(username)) {
+            return "Username is not correctly formatted; please ensure that your username contains an underscore and is no more than five characters in length.";
+            } 
+          if (!checkPasswordComplexity(password)) {
+             return "Password is not correctly formatted; please ensure that the password contains at least eight characters,a capital letter, a number, and a special character."; 
+            }
+          if (!checkCellPhoneNumber(cellNumber)) {
+             return "Cell phone number is incorrectly formatted or does not contain an internationa code; please correct the number and try again."; 
+           }
+           
+         return "User successfully registered.";
+    
+        }
+        
+    }  
 
 
