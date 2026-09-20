@@ -11,7 +11,7 @@ package com.mycompany.prog5121wpoe;
  */
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertion.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class LoginTest {
 
