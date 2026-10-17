@@ -70,6 +70,34 @@ public class PROG5121wPOE {
 
                 loggedIn = login.loginUser(loginUsername, loginPassword);
             }
+            // Welcome message and menu loop
+           System.out.println("Welcome to QuickChat.");
+           boolean running = true;
+           while (running) {
+                System.out.println("\nPlease select an option:");
+                System.out.println("1) Send Messages");
+                System.out.println("2) Show recently sent messages");
+                System.out.println("3) Quit");
+                System.out.print("Enter choice: ");
+
+                String choice = input.nextLine();
+
+                switch (choice) {
+                case "1":
+                System.out.println("Send Messages selected.");
+                // We'll build this out in the next step
+                break;
+                case "2":
+                System.out.println("Coming Soon.");
+                break;
+                case "3":
+                running = false;
+                System.out.println("Goodbye!");
+                break;
+                default:
+                System.out.println("Invalid option; please enter 1, 2, or 3.");
+                }
+            }
         }
     }
 }
