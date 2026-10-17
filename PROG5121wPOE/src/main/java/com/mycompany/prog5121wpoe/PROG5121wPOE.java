@@ -14,7 +14,18 @@ public class PROG5121wPOE {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Login login = new Login();
+        Message message = new Message();
 
+        // Quick manual test of Message validation methods
+        System.out.println(message.checkMessageID("1234567890"));
+        System.out.println(message.checkMessageID("12345678901"));
+
+        System.out.println(message.checkRecipientCell("+27718693002"));
+        System.out.println(message.checkRecipientCell("08575975889"));
+
+        System.out.println(message.checkMessageLength("Hi Mike, can you join us for dinner tonight?"));
+        
+        
         // Registration
         System.out.println("*** Registration ***");
 
