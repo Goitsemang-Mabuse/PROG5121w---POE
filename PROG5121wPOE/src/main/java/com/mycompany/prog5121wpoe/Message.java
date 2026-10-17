@@ -39,5 +39,17 @@ public class Message {
         }
     }
 
+    // Creates the Message Hash: first 2 chars of message ID + ":" + message number + ":" + first and last words of message, all uppercase
+    public String createMessageHash(String messageID, int messageNumber, String messageText) {
+    String idPart = messageID.substring(0, 2);
+
+    String[] words = messageText.trim().split("\\s+");
+    String firstWord = words[0];
+    String lastWord = words[words.length - 1];
+
+    String hash = idPart + ":" + messageNumber + ":" + firstWord + lastWord;
+    return hash.toUpperCase();
+    }
+    
 }
    
