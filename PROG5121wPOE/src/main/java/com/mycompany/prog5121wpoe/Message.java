@@ -15,6 +15,9 @@ public class Message {
     private String recipient;
     private String messageText;
 
+    private static java.util.List<String> sentMessages = new java.util.ArrayList<>();
+    private static int totalMessagesSent = 0;
+    
     // Checks that the message ID is no more than 10 characters long
     public boolean checkMessageID(String messageID) {
         return messageID.length() <= 10;
@@ -45,7 +48,9 @@ public class Message {
     public String createMessageHash(String messageID, int messageNumber, String messageText) {
     String idPart = messageID.substring(0, 2);
 
-    String[] words = messageText.trim().split("\\s+");
+    // Remove punctuation so words like "tonight?" become "tonight"
+    String cleanText = messageText.replaceAll("[^a-zA-Z0-9\\s]", "");
+    String[] words = cleanText.trim().split("\\s+");
     String firstWord = words[0];
     String lastWord = words[words.length - 1];
 
@@ -80,5 +85,26 @@ public class Message {
             return "Invalid option.";
         }
     }
+    // Returns all messages sent while the program has been running
+    public String printMessages() {
+        StringBuilder result = new StringBuilder();
+        for (String msg : sentMessages) {
+            result.append(msg).append("\n");
+        }
+            return result.toString();
+    }
+
+    // Returns the total number of messages sent
+    public int returnTotalMessages() {
+         return totalMessagesSent;
+        }
+    
+    // Records a sent message's full details and increments the total sent count
+    public void recordSentMessage(String messageID, String messageHash, String recipientCell, String messageText) {
+           String fullDetails = "Message ID: " + messageID + ", Hash: " + messageHash + ", Recipient: " + recipientCell + ", Message: " + messageText;
+           sentMessages.add(fullDetails);
+           totalMessagesSent++;
+        }
 }
+
    

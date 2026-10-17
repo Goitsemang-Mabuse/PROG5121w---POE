@@ -15,6 +15,7 @@ public class PROG5121wPOE {
         Scanner input = new Scanner(System.in);
         Login login = new Login();
         Message message = new Message();
+        
         // Registration
         System.out.println("*** Registration ***");
 
@@ -84,22 +85,49 @@ public class PROG5121wPOE {
 
                 switch (choice) {
                 case "1":
-                System.out.println("Send Messages selected.");
-                // We'll build this out in the next step
-                break;
-                case "2":
-                System.out.println("Coming Soon.");
-                break;
-                case "3":
-                running = false;
-                System.out.println("Goodbye!");
-                break;
-                default:
-                System.out.println("Invalid option; please enter 1, 2, or 3.");
+                System.out.print("How many messages would you like to send? ");
+                int numMessages = Integer.parseInt(input.nextLine());
+
+                for (int i = 0; i < numMessages; i++) {
+                String recipientCell;
+                String recipientResult;
+                do {
+                    System.out.print("Enter recipient cell number (+27xxxxxxxxx): ");
+                    recipientCell = input.nextLine();
+                    recipientResult = message.checkRecipientCell(recipientCell);
+                    System.out.println(recipientResult);
+                } while (!recipientResult.equals("Cell phone number successfully captured."));
+
+                String messageText;
+                String lengthResult;
+                do {
+                    System.out.print("Enter your message: ");
+                    messageText = input.nextLine();
+                    lengthResult = message.checkMessageLength(messageText);
+                    System.out.println(lengthResult);
+                } while (!lengthResult.equals("Message ready to send."));
+ 
+                String messageID = message.generateMessageID();
+                String messageHash = message.createMessageHash(messageID, i, messageText);
+
+                String actionResult = message.sentMessage(input);
+                System.out.println(actionResult);
+
+                if (actionResult.equals("Message successfully sent.")) {
+                    message.recordSentMessage(messageID, messageHash, recipientCell, messageText);
+                    System.out.println("\nMessage ID: " + messageID);
+                    System.out.println("Message Hash: " + messageHash);
+                    System.out.println("Recipient: " + recipientCell);
+                    System.out.println("Message: " + messageText);
                 }
             }
-            String result = message.sentMessage(input);
-            System.out.println(result);
+
+                System.out.println("\nTotal messages sent: " + message.returnTotalMessages());
+                 break;
+                }
+           }
         }
     }
 }
+        
+    
