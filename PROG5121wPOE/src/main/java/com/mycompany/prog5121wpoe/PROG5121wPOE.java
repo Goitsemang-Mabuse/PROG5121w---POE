@@ -14,7 +14,6 @@ public class PROG5121wPOE {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Login login = new Login();
-        Message message = new Message();
         
         // Registration
         System.out.println("*** Registration ***");
@@ -100,8 +99,5 @@ public class PROG5121wPOE {
                 }
             }
         }
-        String testID = message.generateMessageID();
-        System.out.println(testID);
-        System.out.println(testID.length()); 
     }
 }

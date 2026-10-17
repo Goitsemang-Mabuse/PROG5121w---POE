@@ -4,6 +4,8 @@
  */
 package com.mycompany.prog5121wpoe;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Goitsemang Mabuse ST10505287
@@ -55,6 +57,28 @@ public class Message {
     public String generateMessageID() {
     long id = (long) (Math.random() * 9_000_000_000L) + 1_000_000_000L;
     return String.valueOf(id);
+    }
+    
+    // Asks the user to choose what to do with the message: send, disregard, or store
+    public String sentMessage(Scanner input) {
+    System.out.println("Would you like to:");
+    System.out.println("1) Send Message");
+    System.out.println("2) Disregard Message");
+    System.out.println("3) Store Message to send later");
+    System.out.print("Enter choice: ");
+
+    String choice = input.nextLine();
+
+    switch (choice) {
+        case "1":
+            return "Message successfully sent.";
+        case "2":
+            return "Press 0 to delete the message.";
+        case "3":
+            return "Message successfully stored.";
+        default:
+            return "Invalid option.";
+        }
     }
 }
    
