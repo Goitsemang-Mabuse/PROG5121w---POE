@@ -99,7 +99,9 @@ public class PROG5121wPOE {
                 System.out.println("Invalid option; please enter 1, 2, or 3.");
                 }
             }
-         System.out.println(message.createMessageHash("0012345678", 0, "Hi Thanks"));
         }
+        String testID = message.generateMessageID();
+        System.out.println(testID);
+        System.out.println(testID.length()); 
     }
 }

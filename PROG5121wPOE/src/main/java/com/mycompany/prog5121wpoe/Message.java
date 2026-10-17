@@ -51,5 +51,10 @@ public class Message {
     return hash.toUpperCase();
     }
     
+    // Generates a random 10-digit Message ID as a String
+    public String generateMessageID() {
+    long id = (long) (Math.random() * 9_000_000_000L) + 1_000_000_000L;
+    return String.valueOf(id);
+    }
 }
    
