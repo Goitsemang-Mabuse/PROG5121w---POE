@@ -11,36 +11,65 @@ package com.mycompany.prog5121wpoe;
 import java.util.Scanner;
 
 public class PROG5121wPOE {
-      public static void main(String[] args){
-          Scanner input = new Scanner(System.in);
-          Login login = new Login();
-          
-          //Registration
-          System.out.println("*** Registration ***");
-          System.out.println("Enter Username: ");
-          String username = input.nextLine();
-      
-          System.out.print("Enter Password: ");
-          String password = input.nextLine();
-          
-          System.out.print("Enter Cell Phone Number (+27xxxxxxxxx)");
-          String cellNumber = input.nextLine();
-          
-          String registrationMessage = login.registerUser(username, password, cellNumber);
-          System.out.println(registrationMessage);
-          
-          //Only proceed to login if registration succeeded
-          if ("User successfully registered.".equals(registrationMessage)) {
-              System.out.println("\n*** Login ***");
-              System.out.print("Enter Username");
-              String loginUsername = input.nextLine();
-              
-              System.out.print("Enter Password: ");
-              String loginPassword = input.nextLine();
-              
-              String loginStatus = login.returnLoginStatus(loginUsername, loginPassword);
-              System.out.println(loginStatus);
-          }
-      }   
-      
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        Login login = new Login();
+
+        // Registration
+        System.out.println("*** Registration ***");
+
+        // Keep asking for username until it passes validation
+        String username;
+        do {
+            System.out.print("Enter Username: ");
+            username = input.nextLine();
+            if (!login.checkUserName(username)) {
+                System.out.println("Username is not correctly formatted; please ensure that your username contains an underscore and is no more than five characters in length.");
+            }
+        } while (!login.checkUserName(username));
+
+        // Keep asking for password until it passes validation
+        String password;
+        do {
+            System.out.print("Enter Password: ");
+            password = input.nextLine();
+            if (!login.checkPasswordComplexity(password)) {
+                System.out.println("Password is not correctly formatted; please ensure that the password contains at least eight characters, a capital letter, a number, and a special character.");
+            }
+        } while (!login.checkPasswordComplexity(password));
+
+        // Keep asking for cell number until it passes validation
+        String cellNumber;
+        do {
+            System.out.print("Enter Cell Phone Number (+27xxxxxxxxx): ");
+            cellNumber = input.nextLine();
+            if (!login.checkCellPhoneNumber(cellNumber)) {
+                System.out.println("Cell phone number is incorrectly formatted or does not contain an international code; please correct the number and try again.");
+            }
+        } while (!login.checkCellPhoneNumber(cellNumber));
+
+        // All three fields are valid at this point, so registration will succeed
+        String registrationMessage = login.registerUser(username, password, cellNumber);
+        System.out.println(registrationMessage);
+
+        // Only proceed to login if registration succeeded
+        if ("User successfully registered.".equals(registrationMessage)) {
+            System.out.println("\n*** Login ***");
+
+            // Keep asking for login credentials until they match the registered details
+            boolean loggedIn = false;
+            while (!loggedIn) {
+                System.out.print("Enter Username: ");
+                String loginUsername = input.nextLine();
+
+                System.out.print("Enter Password: ");
+                String loginPassword = input.nextLine();
+
+                String loginStatus = login.returnLoginStatus(loginUsername, loginPassword);
+                System.out.println(loginStatus);
+
+                loggedIn = login.loginUser(loginUsername, loginPassword);
+            }
+        }
+    }
 }
