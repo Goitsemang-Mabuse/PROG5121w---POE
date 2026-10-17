@@ -14,7 +14,8 @@ public class PROG5121wPOE {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Login login = new Login();
-
+        Message message = new Message();
+        
         // Registration
         System.out.println("*** Registration ***");
 
@@ -98,6 +99,7 @@ public class PROG5121wPOE {
                 System.out.println("Invalid option; please enter 1, 2, or 3.");
                 }
             }
+         System.out.println(message.createMessageHash("0012345678", 0, "Hi Thanks"));
         }
     }
 }
