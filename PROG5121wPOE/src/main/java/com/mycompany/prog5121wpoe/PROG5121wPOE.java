@@ -124,10 +124,21 @@ public class PROG5121wPOE {
 
                 System.out.println("\nTotal messages sent: " + message.returnTotalMessages());
                  break;
+                case "2":
+                System.out.println("Coming Soon.");
+                break;
+                case "3":
+                running = false;
+                System.out.println("Goodbye!");
+                break;
+                default:
+                System.out.println("Invalid option; please enter 1, 2, or 3.");
                 }
-           }
+    
+            }      
         }
     }
 }
+
         
     
