@@ -5,6 +5,10 @@
 package com.mycompany.prog5121wpoe;
 
 import java.util.Scanner;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  *
@@ -105,6 +109,17 @@ public class Message {
            sentMessages.add(fullDetails);
            totalMessagesSent++;
         }
+    // Stores all sent messages to a JSON file, researched via Gson library (Google, 2024)
+    // https://github.com/google/gson
+    public void storeMessage() {
+          Gson gson = new GsonBuilder().setPrettyPrinting().create();
+          try (FileWriter writer = new FileWriter("messages.json")) {
+              gson.toJson(sentMessages, writer);
+              System.out.println("Messages successfully stored to messages.json.");
+    }     catch (IOException e) {
+             System.out.println("An error occurred while storing messages: " + e.getMessage());
+            }
+       }
 }
 
    

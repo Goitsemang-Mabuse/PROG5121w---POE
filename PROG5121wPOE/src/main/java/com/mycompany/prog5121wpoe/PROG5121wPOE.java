@@ -123,7 +123,7 @@ public class PROG5121wPOE {
             }
 
                 System.out.println("\nTotal messages sent: " + message.returnTotalMessages());
-                 break;
+                message.storeMessage();
                 case "2":
                 System.out.println("Coming Soon.");
                 break;
