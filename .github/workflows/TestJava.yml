@@ -21,4 +21,5 @@ jobs:
           distribution: 'temurin'
 
       - name: Build and run tests with Maven
+        working-directory: PROG5121wPOE
         run: mvn test
