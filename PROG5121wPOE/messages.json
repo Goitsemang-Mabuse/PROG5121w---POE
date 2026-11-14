@@ -1,3 +1,20 @@
 [
-  "Message ID: 5742732552, Hash: 57:0:HITONIGHT, Recipient: +27718693002, Message: Hi Mike, can you join us for dinner tonight?"
+  {
+    "messageID": "4925240267",
+    "messageHash": "49:1:CANTONIGHT",
+    "recipient": "+27658957126",
+    "message": "Can I see you tonight?"
+  },
+  {
+    "messageID": "6300387699",
+    "messageHash": "63:0:COMEON",
+    "recipient": "+27987657431",
+    "message": "Come on"
+  },
+  {
+    "messageID": "9338191733",
+    "messageHash": "93:1:ENTLEKSORRY",
+    "recipient": "+27842509216",
+    "message": "Entlek sorry"
+  }
 ]
