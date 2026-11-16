@@ -35,8 +35,8 @@ public class Login {
             return password.length() >= 8 && hasUpperCase && hasDigit && hasSpecialChar;
          }
          
-        //Regex pattern for South African cell numbers, adapted from:
-        // https://www.regular-expressions.info/tutorial.html (basic regex reference)
+        // Regex adapted from Goyvaerts (n.d.) Regular Expressions Tutorial.
+        // Available at: https://www.regular-expressions.info/tutorial.html (Accessed: 16 November 2026).
         public boolean checkCellPhoneNumber(String cellNumber) {
             String regex = "^\\+27\\d{9}$";
             return cellNumber.matches(regex);
