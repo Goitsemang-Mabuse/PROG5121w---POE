@@ -268,8 +268,8 @@ public class Message {
         }
     }
 
-    // Reads messages.json into the stored messages array, adapted from Google (n.d.)
-    // https://github.com/google/gson
+    // Reads messages.json into the stored messages array, adapted from Google (n.d.) Gson.
+    // Available at: https://github.com/google/gson (Accessed: 20 September 2026).
     public void loadStoredMessages() {
         Gson gson = new Gson();
         Type listType = new TypeToken<List<StoredMessage>>() { }.getType();

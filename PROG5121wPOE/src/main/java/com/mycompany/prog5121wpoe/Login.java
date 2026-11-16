@@ -36,7 +36,7 @@ public class Login {
          }
          
         // Regex adapted from Goyvaerts (n.d.) Regular Expressions Tutorial.
-        // Available at: https://www.regular-expressions.info/tutorial.html (Accessed: 16 November 2026).
+        // Available at: https://www.regular-expressions.info/tutorial.html (Accessed: 18 September 2026).
         public boolean checkCellPhoneNumber(String cellNumber) {
             String regex = "^\\+27\\d{9}$";
             return cellNumber.matches(regex);
